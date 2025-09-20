@@ -1,21 +1,22 @@
-from sqlalchemy import Column, Integer, String, Text, DateTime, create_engine
+from sqlalchemy import Column, Integer, JSON, String, Text, DateTime, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.sql import func
 
 Base = declarative_base()
 
-class Message(Base):
-    __tablename__ = "messages"
+class Tweet(Base):
+    __tablename__ = "tweets"
     
     id = Column(Integer, primary_key=True, index=True)
-    model_name = Column(String(100), nullable=False)
-    input = Column(Text, nullable=False)
-    output = Column(Text, nullable=False)
+    context = Column(JSON, nullable=False)
+    tweet = Column(Text, nullable=False)
+    author_name = Column(String, nullable=False)
+    author_email = Column(String, nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     
     def __repr__(self):
-        return f"<Message(id={self.id}, model_name='{self.model_name}', created_at='{self.created_at}')>"
+        return f"<Tweet(id={self.id}, created_at='{self.created_at}')>"
 
 # Database setup
 def get_database_url():

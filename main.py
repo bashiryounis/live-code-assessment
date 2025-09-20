@@ -15,13 +15,13 @@ app = FastAPI(lifespan=lifespan)
 
 @app.get("/")
 def read_root():
-    return {"message": "Hello Candidate!"}
+    return {"message": "Welcome to INTO AI Assessment"}
 
 
-# TODO: create a new message endpoint
-# TODO: Store the message response in the database
+# TODO: Create an endpoint to generate ai response then save it to the database (use the ai.py and models.py file)
 
 
 
 
-# TODO: Get all the messages from the database
+# TODO: Retrieve all tweets from the database, sorted by author name (ascending) and created_at (descending).
+

@@ -1,3 +1,2 @@
 
-# TODO: Create the schemas 
-# Make validation for the model name that we are supporting
+# TODO: Create the pydantic schemas for the endpoints (use models.py as reference)

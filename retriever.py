@@ -1,4 +1,3 @@
-# TODO: BONUS
 import json
 
 from langchain_community.vectorstores import FAISS

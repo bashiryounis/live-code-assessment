@@ -1,11 +1,7 @@
 
 
-# TODO: Create the settings class
+# TODO: Create the settings class to read environment variables
 
 
 
-def get_settings():
-    return None
-
-
-settings = get_settings()
+settings = None

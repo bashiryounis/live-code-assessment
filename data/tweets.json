@@ -2,35 +2,35 @@
   {
     "author": {
       "name": "Elena Petrova",
-      "country": "Bulgaria"
+      "email": "elena.petrova@example.com"
     },
     "tweet": "Just deployed our microservice architecture using #FastAPI and Docker "
   },
   {
     "author": {
       "name": "Carlos Mendoza",
-      "country": "Mexico"
+      "email": "carlos.mendoza@example.com"
     },
     "tweet": "Graph embeddings are opening crazy new doors in recommendation systems! #ML #DataScience"
   },
   {
     "author": {
       "name": "Aisha Khan",
-      "country": "Pakistan"
+      "email": "aisha.khan@example.com"
     },
     "tweet": "Thrilled to see our paper on video summarization accepted  #DeepLearning"
   },
   {
     "author": {
       "name": "Liam O'Sullivan",
-      "country": "Ireland"
+      "email": "liam.osullivan@example.com"
     },
     "tweet": "CI/CD pipelines saved us hours this sprint. GitHub Actions for the win! #DevOps"
   },
   {
     "author": {
       "name": "Noura Al-Sayed",
-      "country": "Egypt"
+      "email": "noura.alsayed@example.com"
     },
     "tweet": "Experimenting with RAG and LlamaIndex to build smarter chatbots. Loving the results so far!"
   }
