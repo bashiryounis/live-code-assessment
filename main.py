@@ -8,6 +8,7 @@ from config import settings
 from ai import FakeAI
 from datetime import datetime
 from celery_tasks import delete_duplicate_tweet
+from sqlalchemy import asc, desc
 
 def validate_key(api_key:str): 
     if api_key != settings.X_API_KEY: 
@@ -67,7 +68,9 @@ async def generate(
 async def get_tweets(
     session: sessionmaker = Depends(get_db)
 ):
-    result = session.execute(select(Tweet))
+    result = session.execute(
+        select(Tweet).order_by(asc(Tweet.author_name), desc(Tweet.created_at))
+    )
     tweets = result.scalars().all()
     return [TweetResponse(id=tweet.id,tweet=tweet.tweet,context=tweet.context,author_name=tweet.author_name, author_email=tweet.author_email, created_at=tweet.created_at) for tweet in tweets]
 
