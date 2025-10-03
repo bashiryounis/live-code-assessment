@@ -13,7 +13,7 @@ celery = Celery(
 @celery.task(name="delete_duplicate_tweet")
 def delete_duplicate_tweet(author_email:str): 
     db = get_db()
-    db_tweet = db.query(Tweet).filter(Tweet.author_email == author_email).first()
+    db_tweet = db.query(Tweet).filter(Tweet.author_email == author_email).order_by(Tweet.created_at.asc()).first()
     if db_tweet: 
         db.delete(db_tweet)
         db.commit()
