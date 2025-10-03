@@ -52,22 +52,7 @@ Complete the tasks in this specific order for optimal workflow:
 
 ---
 
-## 📋 Task Breakdown by File
-
-### 1. 🤖 **ai.py** - AI Response Generation (START HERE)
-**What to implement:**
-- Complete the `generate_response()` method to inject context keys into the PROMPT
-- Implement the `__retrieve()` method to get the top 1 tweet using the retriever
-- Process the context dictionary to replace placeholders (`{topic}`, `{location}`, `{language}`) in PROMPT
-
-**Requirements:**
-- Use the retriever to get the most relevant tweet based on the injected prompt
-- Return both the tweet content and author information
-- Handle the context parameter to inject values into the PROMPT template
-
----
-
-### 2. 🗄️ **retriever.py** - Vector Search 
+### 1. 🗄️ **retriever.py** - Vector Search 
 **What to implement:**
 - Load tweets from `data/tweets.json`
 - Create Document objects with tweet text as page_content and author info as metadata
@@ -80,6 +65,22 @@ Complete the tasks in this specific order for optimal workflow:
 - Make retriever available for [`FakeAI`](ai.py) class integration
 
 ---
+
+## 📋 Task Breakdown by File
+
+### 2. 🤖 **ai.py** - AI Response Generation (START HERE)
+**What to implement:**
+- Complete the `generate_response()` method to inject context keys into the PROMPT
+- Implement the `__retrieve()` method to get the top 1 tweet using the retriever
+- Process the context dictionary to replace placeholders (`{topic}`, `{location}`, `{language}`) in PROMPT
+
+**Requirements:**
+- Use the retriever to get the most relevant tweet based on the injected prompt
+- Return both the tweet content and author information
+- Handle the context parameter to inject values into the PROMPT template
+
+---
+
 
 ### 3. 📝 **config.py** - Settings Management
 **What to implement:**
@@ -152,13 +153,13 @@ Complete the tasks in this specific order for optimal workflow:
 ## 🎯 Implementation Requirements Summary
 
 ### **REQUIRED (Must complete in order):**
-1. [ ] **AI Response Generation** ([`ai.py`](ai.py))
-   - Context injection into PROMPT template
-   - Integration with retriever for tweet selection
-
-2. [ ] **Vector Search** ([`retriever.py`](retriever.py))
+1. [ ] **Vector Search** ([`retriever.py`](retriever.py))
    - Load and process tweet data from [`data/tweets.json`](data/tweets.json)
    - Create searchable vector store with FAISS
+
+2. [ ] **AI Response Generation** ([`ai.py`](ai.py))
+   - Context injection into PROMPT template
+   - Integration with retriever for tweet selection
 
 3. [ ] **Settings Management** ([`config.py`](config.py))
    - Environment variable loading with pydantic-settings
