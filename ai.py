@@ -1,4 +1,6 @@
 from typing import Dict, Any
+from retriever import retriever
+from langchain_core.prompts import PromptTemplate
 
 PROMPT = """
 Find recent tweets about {topic} from {location} written in {language}.
@@ -12,13 +14,15 @@ class FakeAI:
     # Use this function in the generate_response function after injecting the keys from the context into the PROMPT
     # the query parameter is the string after injecting the keys from the context into the PROMPT
     async def __retrieve(self, query: str) -> Dict[str, Any]:
-        # Write code here
-        return {"tweet": "fake tweet", "author": {"name": "John Doe", "email": "john@example.com"}}
+        retriever = retriever.as_retriever(search_type="mmr", search_kwargs={"k": 1})
+        docs =retriever.invoke(query)
+        return docs
 
     # TODO: Inject the keys from the context into the PROMPT
     async def generate_response(self, context: Dict[str, Any]) -> Dict[str, Any]: 
-        # Write code here
-        return await self.__retrieve("prompt with injected keys")
+        prompt= PromptTemplate.from_template(PROMPT)
+        formatted_prompt = prompt.invoke({"topic": context["topic"], "location": context["location"], "language":context["language"]})
+        return await self.__retrieve(formatted_prompt)
     
     
 
